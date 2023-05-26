@@ -30,12 +30,12 @@ namespace mvvm.ViewModels
         public MainWindowViewModel()
         {
             List<TblCategory> categories = new List<TblCategory>
-            { new TblCategory() { Id = 0, Category = "Все Rатегории" } };
+            { new TblCategory() { Id = 0, Category = "ALL Rатегории" } };
             categories.AddRange(DB.instance.TblCategories.ToList());
             Categories = categories.ToObservableCollection();
 
             List<TblProvider> providers = new List<TblProvider> { new TblProvider()
-            { Id = 0, Provider = "Все производители" } };
+            { Id = 0, Provider = "All Производители" } };
             providers.AddRange(DB.instance.TblProviders.ToList());
             Providers = providers.ToObservableCollection();
 
