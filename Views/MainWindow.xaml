@@ -12,30 +12,30 @@
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="185"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <ListView ItemsSource="{Binding Products}" Grid.Column="1">
             <ListView.View>
                 <GridView>
                     <GridView.Columns>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
-                        <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Name}"/>
-                        <GridViewColumn Header="Категория" DisplayMemberBinding="{Binding CategoryNavigation.Category}"/>
-                        <GridViewColumn Header="Производитель" DisplayMemberBinding="{Binding Provider.Provider}"/>
-                        <GridViewColumn Header="Стоимость одной единицы" DisplayMemberBinding="{Binding StringFormat={}{0}руб., Path=CostOfOne}"/>
-                        <GridViewColumn Header="Скидка" DisplayMemberBinding="{Binding StringFormat={}{0}%, Path=Discount}"/>
+                     
+                        <GridViewColumn Header="Название" Width="100" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Категория" Width="100"  DisplayMemberBinding="{Binding CategoryNavigation.Category}"/>
+                        <GridViewColumn Header="Производитель" Width="100"  DisplayMemberBinding="{Binding Provider.Provider}"/>
+                        <GridViewColumn Header="Стоимость одной единицы" Width="200"  DisplayMemberBinding="{Binding StringFormat={}{0}руб., Path=CostOfOne}"/>
+                        <GridViewColumn Header="Скидка" Width="100"  DisplayMemberBinding="{Binding StringFormat={}{0}%, Path=Discount}"/>
                     </GridView.Columns>
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel Grid.Column="0" Margin="15">
-            <TextBlock Text="Фильтрация по категориям"/>
+        <StackPanel Grid.Column="0" >
+            <TextBlock Text="ALL Rатегориям"/>
             <ComboBox ItemsSource="{Binding Categories}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedCategory}"/>
-            <TextBlock Text="Фильтрация по производителю" Margin="0 15 0 0"/>
+            <TextBlock Text="All Производителю" Margin="0 15 0 0"/>
             <ComboBox ItemsSource="{Binding Providers}" DisplayMemberPath="Title" SelectedItem="{Binding SelectedProvider}"/>
 
-            <Button Margin="0 50 0 0" Content="Отфильтровать" FontSize="20" Command="{Binding SearchCommand}"/>
+            <Button Margin="0 50 0 0" Content="Отфильтрация" FontSize="18" Command="{Binding SearchCommand}"/>
         </StackPanel>
     </Grid>
 </Window>

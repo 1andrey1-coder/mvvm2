@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using mvvm.OtherFiles;
+using mvvm.ViewModels;
 using DevExpress.Mvvm.Native;
 using Microsoft.EntityFrameworkCore;
 using mvvm.Models;
@@ -19,27 +20,27 @@ namespace mvvm.ViewModels
     public class MainWindowViewModel : ViewModelBase
     {
         
-        public ObservableCollection<TblProduct> Products { get; set; }
-        public ObservableCollection<TblCategory> Categories { get; set; }
-        public ObservableCollection<TblProvider> Providers { get; set; }
+        public ObservableCollection<Tblproduct> Products { get; set; }
+        public ObservableCollection<Tblcategory> Categories { get; set; }
+        public ObservableCollection<Tblprovider> Providers { get; set; }
 
        
-        public TblCategory SelectedCategory { get; set; }
-        public TblProvider SelectedProvider { get; set; }
+        public Tblcategory SelectedCategory { get; set; }
+        public Tblprovider SelectedProvider { get; set; }
 
         public MainWindowViewModel()
         {
-            List<TblCategory> categories = new List<TblCategory>
-            { new TblCategory() { Id = 0, Category = "ALL Rатегории" } };
-            categories.AddRange(DB.instance.TblCategories.ToList());
+            List<Tblcategory> categories = new List<Tblcategory>
+            { new Tblcategory() { Id = 0, Category = "ALL Rатегории" } };
+            categories.AddRange(DB.instance.Tblcategories.ToList());
             Categories = categories.ToObservableCollection();
 
-            List<TblProvider> providers = new List<TblProvider> { new TblProvider()
+            List<Tblprovider> providers = new List<Tblprovider> { new Tblprovider()
             { Id = 0, Provider = "All Производители" } };
-            providers.AddRange(DB.instance.TblProviders.ToList());
+            providers.AddRange(DB.instance.Tblproviders.ToList());
             Providers = providers.ToObservableCollection();
 
-            Products = DB.instance.TblProducts.ToObservableCollection();
+            Products = DB.instance.Tblproducts.ToObservableCollection();
 
             SelectedCategory = Categories[0];
             SelectedProvider = Providers[0];
@@ -48,7 +49,7 @@ namespace mvvm.ViewModels
         
         private void Search()
         {
-            Products = DB.instance.TblProducts.Include(s => s.CategoryNavigation).
+            Products = DB.instance.Tblproducts.Include(s => s.CategoryNavigation).
                 Include(s => s.Provider)
                .Where(s => (this.SelectedProvider.Id == 0 || s.ProviderId == this.SelectedProvider.Id)
                && (this.SelectedCategory.Id == 0 || s.Category == this.SelectedCategory.Id)).ToObservableCollection();

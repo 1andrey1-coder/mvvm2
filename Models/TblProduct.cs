@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using mvvm.OtherFiles;
 
 namespace mvvm.Models;
 
-public partial class TblProduct
+public partial class Tblproduct
 {
     public int Id { get; set; }
 
@@ -18,7 +17,7 @@ public partial class TblProduct
 
     public string? Discount { get; set; }
 
-    public virtual TblCategory? CategoryNavigation { get; set; }
+    public virtual Tblcategory? CategoryNavigation { get; set; }
 
-    public virtual TblProvider? Provider { get; set; }
+    public virtual Tblprovider? Provider { get; set; }
 }
