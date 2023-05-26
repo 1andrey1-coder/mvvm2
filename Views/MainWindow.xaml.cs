@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using mvvm.OtherFiles;
 using System.Windows.Shapes;
+using mvvm.OtherFiles;
 
 namespace mvvm
 {

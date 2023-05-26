@@ -1,4 +1,4 @@
-﻿using mvvm.Models;
+﻿using DevExpress.Mvvm;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using mvvm.OtherFiles;
-using Microsoft.EntityFrameworkCore;
 using DevExpress.Mvvm.Native;
-using DevExpress.Mvvm;
+using Microsoft.EntityFrameworkCore;
+using mvvm.Models;
 
 namespace mvvm.ViewModels
 {
